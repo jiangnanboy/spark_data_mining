@@ -1,0 +1,15 @@
+user1 movie1 3
+user1 movie2 4
+user1 movie3 3
+user2 movie1 2
+user2 movie2 5
+user2 movie3 3
+user2 movie5 5
+user3 movie1 2
+user3 movie2 3
+user3 movie3 2
+user4 movie1 5
+user4 movie2 3
+user4 movie3 3
+user4 movie4 2
+user4 movie5 3

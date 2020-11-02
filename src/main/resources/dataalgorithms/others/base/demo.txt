@@ -1,0 +1,9 @@
+Spark SQL supports automatically converting an RDD of JavaBeans into a DataFrame.
+The BeanInfo, obtained using reflection, defines the schema of the table.
+Currently, Spark SQL does not support JavaBeans that contain Map field(s).
+Nested JavaBeans and List or Array fields are supported though.
+You can create a JavaBean by creating a class that implements Serializable and has getters and setters for all of its fields.
+Aggregate functions are functions that return a single value on a group of rows.
+The Built-in Aggregation Functions provide common aggregations such as count(), countDistinct(), avg(), max(), min(), etc.
+Users are not limited to the predefined aggregate functions and can create their own.
+For more details about user defined aggregate functions, please refer to the documentation of User Defined Aggregate Functions.
