@@ -36,5 +36,5 @@ This repository provides tutorial code for big data developers to learn [spark](
 
 #### references
 * [data algorithms](https://github.com/mahmoudparsian/data-algorithms-book)
-* [spark](https://github.com/apache/spark/examples/src/main/java/org/apache/spark/examples)
+* [spark](https://github.com/apache/spark/tree/master/examples/src/main/java/org/apache/spark/examples)
 * [spark_smote](https://github.com/jiangnanboy/spark-smote)
