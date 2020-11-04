@@ -2,6 +2,7 @@ import os
 import time
 import datetime
 
+# 根据（spark）Markov.java统计出的马尔可夫模型(model.txt)，对validate.txt中的数据进行预测什么时间应该发出营销邮件
 user_action = {}
 model = []
 #9大状态
