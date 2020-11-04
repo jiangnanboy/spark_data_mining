@@ -11,7 +11,7 @@ This repository provides tutorial code for big data developers to learn [spark](
 * [TopN](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/basics/TopN.java)
 
 #### 2. intermediate
-* [Markov](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/smartemail/Markov.java)
+* [Markov](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/smartemail)
 * [SparkSmote](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/SparkSmote.java)
 * [AssociationRules](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/AssociationRules.java)
 * [FindCommonFriends](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/FindCommonFriends.java)
