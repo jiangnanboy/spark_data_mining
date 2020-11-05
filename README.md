@@ -6,17 +6,18 @@ This repository provides tutorial code for big data developers to learn [spark](
 ##Contents
 
 #### 1. basics
-* [LeftOuterJoin](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/basics/LeftOuterJoin.java)
-* [SecondarySort](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/basics/SecondarySort.java)
+* [LeftOuterJoin左外连接](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/basics/LeftOuterJoin.java)
+* [SecondarySort二次排序](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/basics/SecondarySort.java)
 * [TopN](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/basics/TopN.java)
 
 #### 2. intermediate
-* [Markov](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/smartemail)
-* [SparkSmote](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/SparkSmote.java)
-* [AssociationRules](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/AssociationRules.java)
-* [FindCommonFriends](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/FindCommonFriends.java)
-* [FriendRecom](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/FriendRecom.java)
-* [ItermCFMovieRecom](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/ItermCFMovieRecom.java)
+* [Markov马尔可夫智能邮件预测](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/smartemail)
+* [SparkSmote样本采样](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/SparkSmote.java)
+* [AssociationRules关联规则](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/AssociationRules.java)
+* [FindCommonFriends共同好友](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/FindCommonFriends.java)
+* [FriendRecom推荐朋友](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/FriendRecom.java)
+* [ItermCFMovieRecom推荐电影](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/ItermCFMovieRecom.java)
+* [RFM客户价值分群挖掘](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/RFM.java)
 
 #### 3. advanced
 * []()
@@ -38,3 +39,4 @@ This repository provides tutorial code for big data developers to learn [spark](
 * [data algorithms](https://github.com/mahmoudparsian/data-algorithms-book)
 * [spark](https://github.com/apache/spark/tree/master/examples/src/main/java/org/apache/spark/examples)
 * [spark_smote](https://github.com/jiangnanboy/spark-smote)
+* [LearningApacheSpark](https://github.com/runawayhorse001/LearningApacheSpark)

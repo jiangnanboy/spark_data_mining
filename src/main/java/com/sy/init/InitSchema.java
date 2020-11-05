@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * @Author Shi Yan
- * @Date 2020/8/11 21:42
+ * @Date 2020/8/11 17:42
  */
 public class InitSchema {
 
@@ -56,6 +56,22 @@ public class InitSchema {
         StructType schema = DataTypes.createStructType(fileds);
         return schema;
     }
+
+    public static StructType initOnlineRetailSchema() {
+        StructType schema = new StructType(new StructField[]{
+                new StructField("InvoiceNo", DataTypes.StringType,false, Metadata.empty()),
+                new StructField("StockCode", DataTypes.StringType, false, Metadata.empty()),
+                new StructField("Description", DataTypes.StringType, false, Metadata.empty()),
+                new StructField("Quantity", DataTypes.IntegerType,false, Metadata.empty()),
+                new StructField("InvoiceDate", DataTypes.StringType, false, Metadata.empty()),
+                new StructField("UnitPrice", DataTypes.DoubleType, false, Metadata.empty()),
+                new StructField("CustomerID", DataTypes.IntegerType, false, Metadata.empty()),
+                new StructField("Country", DataTypes.StringType, false, Metadata.empty())
+        });
+        return schema;
+    }
+
+
 
 
 }
