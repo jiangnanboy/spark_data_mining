@@ -34,6 +34,9 @@ This repository provides tutorial code for big data developers to learn [spark](
 #### requirements
 * [java1.8]
 * [spark3.0]
+* [python3.6]
+* [pandas1.1.4]
+* [numpy1.18.5]
 
 #### references
 * [data algorithms](https://github.com/mahmoudparsian/data-algorithms-book)
