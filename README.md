@@ -17,7 +17,7 @@ This repository provides tutorial code for big data developers to learn [spark](
 * [FindCommonFriends共同好友](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/FindCommonFriends.java)
 * [FriendRecom推荐朋友](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/FriendRecom.java)
 * [ItermCFMovieRecom推荐电影](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/ItermCFMovieRecom.java)
-* [RFM客户价值分群挖掘](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/RFM.java)
+* [RFM客户价值分群挖掘](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/customervalue)
 
 #### 3. advanced
 * []()

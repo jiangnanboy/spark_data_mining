@@ -1,4 +1,4 @@
-package com.sy.dataalgorithms.intermediate;
+package com.sy.dataalgorithms.intermediate.customervalue;
 
 import com.sy.init.InitSchema;
 import com.sy.init.InitSpark;
@@ -21,16 +21,19 @@ import org.apache.spark.sql.types.StructType;
 
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Random;
 
 import static org.apache.spark.sql.functions.*;
 
 
 /**
- * RFM是一种用于分析客户价值的方法
- * RFM => Recency, Frequency, Monetary
- *      最近-客户最近购买了多少？即自上次购买以来的持续时间
- *      频率——他们多久购买一次？即购买总数
- *      货币价值——他们花了多少钱？即该客户花费的总金额
+ * RFM是一种用来衡量当前客户价值和潜在客户价值的重要工具和手段
+ * 在面向客户制定运营策略、营销策略时，我们希望能够针对不同的客户推行不同的策略，实现精准化运营，以期获取最大的转化率。精准化运营的前提是客户关系管理，而客户关系管理的核心是客户分类。
+ * 通过客户分类，对客户群体进行细分，区别出低价值客户、高价值客户，对不同的客户群体开展不同的个性化服务，将有限的资源合理地分配给不同价值的客户，实现效益最大化。
+ * 在客户分类中，RFM模型是一个经典的分类模型，模型利用通用交易环节中最核心的三个维度：
+ *       1.最近消费(Recency)自上次购买以来的持续时间
+ *       2.消费频率(Frequency)购买总数
+ *       3.消费金额(Monetary)该客户花费的总金额
  *
  * @Author Shi Yan
  * @Date 2020/11/5 20:01
@@ -237,11 +240,11 @@ public class RFM {
 
     /**
      * rfmStatistics()是对rfm的统计
-     * 接下来需要对统计后的rfm数据进行分隔，以划分和分析不同的客户价值，即对客户分群，参考资料中提出2种方案对客户分群：
+     * 接下来需要对统计后的rfm数据进行分隔，以划分和分析不同的客户价值，即对客户分群，参考资料中提出3种方案对客户分群：
      *          1.根据经验，熟悉业务的人进行定义划分标准，需要不断修正
      *          2.统计每列的4分位数，根据分位数进行划分(spark中没有现在的4分位统计函数，可利用python)
      *          3.利用聚类自动划分(r、f、m作为特征，可统计更多特征)
-     *
+     * 以下利用聚类对客户分类
      */
     public static void customersCluster(SparkSession session, Dataset<Row> rfmDataset) {
 
@@ -296,16 +299,58 @@ public class RFM {
          */
 
         /**
-         *获取最佳聚类簇数，对数据进行聚类。后面根据聚类结果进行特征分析，完成对客户数据进行分群
+         *利用轮廓系数获取最佳聚类簇数，对数据进行聚类。后面根据聚类结果进行特征分析，完成对客户数据进行分群
+         *          * +---+------------------+
+         *          * |  k|        silhouette|
+         *          * +---+------------------+
+         *          * |  2|0.8045154385557953|
+         *          * |  3|0.6993528775512052|
+         *          * |  4|0.6689286654221447|
+         *          * |  5|0.6356184024841809|
+         *          * |  6|0.7174102265711756|
+         *          * |  7|0.6720861758298997|
+         *          * |  8| 0.601771359881241|
+         *          * |  9|0.6292447334578428|
          */
-        int k = selectOptimalK(scaledData, 3, 2);
+        //int k = selectOptimalK(scaledData, 9, 20);
+
         //model
-        KMeans kMeans = new KMeans()
-                .setK(k) //簇数
+        KMeans kMeans = new KMeans().setFeaturesCol("scaledFeatures")
+                .setK(2) //簇数
                 .setSeed(1);
         KMeansModel model = kMeans.fit(scaledData);
+        /**
+         * 打印结果
+         * +----------+------------------+--------------------+----------+
+         * |CustomerID|          features|      scaledFeatures|prediction|
+         * +----------+------------------+--------------------+----------+
+         * |     12940| [46.0,4.0,876.29]|[0.12332439678284...|         1|
+         * |     13285|[23.0,4.0,2709.12]|[0.06166219839142...|         1|
+         * |     13623| [30.0,7.0,672.44]|[0.08042895442359...|         1|
+         * |     13832|  [17.0,2.0,40.95]|[0.04557640750670...|         1|
+         * |     14450|[180.0,3.0,483.25]|[0.48257372654155...|         0|
+         * +----------+------------------+--------------------+----------+
+         */
         Dataset<Row> predictions  = model.transform(scaledData);
         predictions.show(5);
+
+        /**聚类中心
+         * 0 => [0.6646001408433307,0.003600813448012091,0.01679317521229563]
+         * 1 => [0.10719456205329142,0.020757763684444562,0.023451563060011567]
+         */
+        Vector[] centers = model.clusterCenters();
+        for(Vector center : centers) {
+            System.out.println(center);
+        }
+
+        /**
+         * 通过以上可以看出数据分成了2类，怎么对这2类数据进行细分成 =》 重要客户；一般客户？(当然可以聚多个类，划分更加精细)
+         * 一种方法是将聚类中心的三个列求出中位数(均值)，根据每个类的列值和求出中位数(均值)后列的值进行比较，分析出结果
+         * 其中：
+         *      Recency越小越好
+         *      Frequency越大越好
+         *      Monetary越大越好
+         */
 
     }
 
@@ -318,15 +363,17 @@ public class RFM {
      * @return
      */
     public static int selectOptimalK(Dataset<Row> scaledData, int kClusters, int numRuns) {
+        Random random = new Random();
         int optimalK = 2;
         double maxSilhouette = -1;
         for(int k = 2; k <= kClusters; k++) {
             double silhouette = 0.0;
             for(int run = 1; run <= numRuns; run++) {
                 //model
-                KMeans kMeans = new KMeans()
+                KMeans kMeans = new KMeans()//迭代次数默认为20
+                        .setFeaturesCol("scaledFeatures")
                         .setK(k) //簇数
-                        .setMaxIter(1);//迭代次数
+                        .setSeed(random.nextInt(100));
                 //训练
                 KMeansModel model = kMeans.fit(scaledData);
                 //预测
