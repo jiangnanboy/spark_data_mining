@@ -362,6 +362,8 @@ public class RFM {
          *      Recency越小越好
          *      Frequency越大越好
          *      Monetary越大越好
+         *
+         *      请查看：customer_value_identification.ipynb
          */
 
     }
