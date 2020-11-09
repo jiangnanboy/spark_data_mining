@@ -146,7 +146,7 @@ public class BusinessCircle {
                 .setSeed(1);
         BisectingKMeansModel model = bkm.fit(scaledData);
         /**
-         * 预测结果
+         * 预测结果，后面根据聚类结果划分出不同的商圈，对3类数据中的4个特征进行分析，定义3类商圈的不定定位进行商业活动，具体可看《python数据分析与挖掘实战》一书中的第14章。
          * +---------+--------------------+--------------------+----------+
          * |stationID|            features|      scaledFeatures|prediction|
          * +---------+--------------------+--------------------+----------+
