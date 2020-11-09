@@ -18,7 +18,7 @@ This repository provides tutorial code for big data developers to learn [spark](
 * [FriendRecom推荐朋友](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/FriendRecom.java)
 * [ItermCFMovieRecom推荐电影](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/ItermCFMovieRecom.java)
 * [RFM客户价值分群挖掘](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/customervalue)
-* [手机基站定位数据的商圈分析](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/BusinessCircle.java)
+* [手机基站定位数据的商圈挖掘](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/BusinessCircle.java)
 #### 3. advanced
 * []()
 * []()

@@ -49,8 +49,8 @@ public class BusinessCircle {
          *
          *      工作日上班时间人均停留时间=
          *      凌晨人均停留时间=
-         *      凌晨人均停留时间=
-         *      凌晨人均停留时间=
+         *      周末人均停留时间=
+         *      日均人流量=
          *
          *      基站编号,工作日上班时间人均停留时间,凌晨人均停留时间,凌晨人均停留时间,凌晨人均停留时间
          *      36902,  78,                     521,           602,           2863
@@ -140,7 +140,7 @@ public class BusinessCircle {
          */
         int k = selectOptimalK(scaledData, 10);
 
-        //model
+        //model，利用层次聚类
         BisectingKMeans bkm = new BisectingKMeans().setFeaturesCol("scaledFeatures")
                 .setK(k) //簇数
                 .setSeed(1);
