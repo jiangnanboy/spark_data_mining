@@ -1,5 +1,5 @@
-This repository provides tutorial code for big data developers to learn [spark](https://github.com/apache/spark).
-一些spark的学习实例，对一些实例和参考资料的改动，以供学习。
+This repository provides tutorial code for big data mining to learn [spark](https://github.com/apache/spark).
+spark大数据挖掘项目实例。
 
 <br/>
 
