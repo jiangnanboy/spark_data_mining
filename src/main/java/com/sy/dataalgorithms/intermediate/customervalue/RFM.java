@@ -43,7 +43,7 @@ public class RFM {
         SparkSession sparkSession = InitSpark.getSparkSession();
         sparkSession.sparkContext().setLogLevel("ERROR");
         Dataset<Row> rfmDataset= rfmStatistics(sparkSession);
-        customersCluster(sparkSession, rfmDataset);
+        customersCluster(rfmDataset);
         InitSpark.closeSparkSession();
     }
 
@@ -258,7 +258,7 @@ public class RFM {
      *          3.利用聚类自动划分(r、f、m作为特征，可统计更多特征)
      * 以下利用聚类对客户分类
      */
-    public static void customersCluster(SparkSession session, Dataset<Row> rfmDataset) {
+    public static Dataset<Row> customersCluster(Dataset<Row> rfmDataset) {
 
         /**
          * 转为以下形式：
@@ -363,7 +363,7 @@ public class RFM {
          *      Frequency越大越好
          *      Monetary越大越好
          */
-
+        return predictions;
     }
 
     /**
