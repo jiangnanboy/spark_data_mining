@@ -272,11 +272,11 @@ public class AHP {
             }
             return RowFactory.create(customerID, Vectors.dense(new double[]{featureVec.apply(0), featureVec.apply(1), featureVec.apply(2)}), Vectors.dense(new double[]{scaledFeatureVec.apply(0), scaledFeatureVec.apply(1), scaledFeatureVec.apply(2)}), prediction, aphScore);
         }, RowEncoder.apply(new StructType(new StructField[]{
-                new StructField("customerid", DataTypes.IntegerType, false, Metadata.empty()),//为行号
-                new StructField("features", SQLDataTypes.VectorType(),false, Metadata.empty()),
-                new StructField("scaledfeatures", SQLDataTypes.VectorType(), false, Metadata.empty()),
-                new StructField("prediction", DataTypes.IntegerType, false, Metadata.empty()),
-                new StructField("ahpscore", DataTypes.DoubleType, false, Metadata.empty())
+                new StructField("customerid", DataTypes.IntegerType, false, Metadata.empty()),//用户id
+                new StructField("features", SQLDataTypes.VectorType(),false, Metadata.empty()),//rfm特征向量
+                new StructField("scaledfeatures", SQLDataTypes.VectorType(), false, Metadata.empty()),//min-max标准化后的rfm特征向量
+                new StructField("prediction", DataTypes.IntegerType, false, Metadata.empty()),//预测该用户的价值类别
+                new StructField("ahpscore", DataTypes.DoubleType, false, Metadata.empty())//该用户的价值得分
         })));
 
         /**
