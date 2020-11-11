@@ -21,13 +21,6 @@ spark数据挖掘项目实例。
 * [手机基站定位数据的商圈分析](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/BusinessCircle.java)
 * [AHP层次分析顾客价值得分](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/AHP.java)
 
-#### 3. ohters
-* [base](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/others/base)
-* [ml](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/others/ml)
-
-<br/>
-
-
 #### requirements
 * [java1.8]
 * [spark3.0]
