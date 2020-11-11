@@ -11,6 +11,7 @@ spark数据挖掘项目实例。
 * [TopN](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/basics/TopN.java)
 
 #### 2. intermediate
+* [ALS股票组合推荐](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/StockRec.java)
 * [Markov马尔可夫智能邮件预测](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/smartemail)
 * [SparkSmote样本采样](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/SparkSmote.java)
 * [AssociationRules关联规则](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/AssociationRules.java)

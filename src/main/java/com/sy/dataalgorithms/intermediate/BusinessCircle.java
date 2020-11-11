@@ -59,7 +59,7 @@ public class BusinessCircle {
          *      36905,  69,                     596,           695,           1054
          *
          */
-        String path = PropertiesReader.get("business_circle_csv");
+        String path = PropertiesReader.get("intermediate_business_circle_csv");
         /**
          * +--------+--------------------------+----------------+----------------+----------+
          * |基站编号 |工作日上班时间人均停留时间   |凌晨人均停留时间  |周末人均停留时间  |日均人流量|

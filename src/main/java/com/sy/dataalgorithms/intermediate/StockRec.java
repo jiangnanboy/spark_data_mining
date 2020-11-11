@@ -4,8 +4,11 @@ import com.sy.init.InitSpark;
 import com.sy.util.PropertiesReader;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.function.MapFunction;
+import org.apache.spark.ml.evaluation.RegressionEvaluator;
 import org.apache.spark.ml.feature.StringIndexer;
 import org.apache.spark.ml.feature.StringIndexerModel;
+import org.apache.spark.ml.recommendation.ALS;
+import org.apache.spark.ml.recommendation.ALSModel;
 import org.apache.spark.sql.*;
 import org.apache.spark.sql.catalyst.encoders.RowEncoder;
 import org.apache.spark.sql.types.DataTypes;
@@ -19,6 +22,8 @@ import java.util.List;
 import static org.apache.spark.sql.functions.col;
 
 /**
+ * 股票组合推荐
+ * 这里股票为item，用户为user。选取topn价值股票作为item
  * @Author Shi Yan
  * @Date 2020/11/11 22:11
  */
@@ -44,7 +49,7 @@ public class StockRec {
          * CustomerID: Customer number. Nominal, a 5-digit integral number uniquely assigned to each customer.
          * Country: Country name. Nominal, the name of the country where each customer resides.
          */
-        String path = PropertiesReader.get("customer_value_csv");
+        String path = PropertiesReader.get("intermediate_customer_value_csv");
 
         /**数据集schema:
          *  |-- InvoiceNo: string (nullable = true)
@@ -222,7 +227,7 @@ public class StockRec {
                 }));
 
         /**
-         * 列Cusip到数字索引，结果如下：
+         * 将Cusip转换成数字索引，结果如下：
          * +----------+------+------+------------+
          * |CustomerID| Cusip|rating|indexedCusip|
          * +----------+------+------+------------+
@@ -234,7 +239,7 @@ public class StockRec {
          * +----------+------+------+------------+
          * only showing top 5 rows
          *
-         * root
+         * schema
          *  |-- CustomerID: integer (nullable = false)
          *  |-- Cusip: string (nullable = false)
          *  |-- rating: double (nullable = false)
@@ -249,8 +254,57 @@ public class StockRec {
                 .setOutputCol("indexedCusip")
                 .fit(ratingSet);
         ratingSet = labelIndexer.transform(ratingSet);
-        ratingSet.show(5);
-        ratingSet.printSchema();
+
+        /**
+         * 将数据集分为训练集和测试集：8：2
+         */
+        Dataset<Row>[] trainTestDataset = ratingSet.randomSplit(new double[]{0.8, 0.2});
+        /**
+         * 评分指标
+         */
+        RegressionEvaluator evaluator = new RegressionEvaluator()
+                .setMetricName("rmse")
+                .setLabelCol("rating")
+                .setPredictionCol("prediction");
+        ALS als = new ALS()
+                .setRank(4)
+                .setMaxIter(4)
+                .setRegParam(0.05)
+                .setNumUserBlocks(10)
+                .setNumItemBlocks(10)
+                .setImplicitPrefs(false)
+                .setAlpha(1.0)
+                .setUserCol("CustomerID")
+                .setItemCol("indexedCusip")
+                .setSeed(1)
+                .setRatingCol("rating")
+                .setNonnegative(true);
+        //训练
+        ALSModel alsModel = als.fit(trainTestDataset[0]);
+        //评估
+        Dataset<Row> prediction = alsModel.transform(trainTestDataset[1].na().drop());
+        double rmse = evaluator.evaluate(prediction);
+        //rmse: 2.3379585597412302
+        System.out.println("rmse: " + rmse);
+
+        //预测
+        Dataset<Row> testDataset = trainTestDataset[1].select("*").where(functions.col("rating").equalTo(0));
+        Dataset<Row> testPrediction = alsModel.transform(testDataset);
+
+        /**
+         * 打印预测结果
+         * +----------+------+------+------------+------------+
+         * |CustomerID| Cusip|rating|indexedCusip|  prediction|
+         * +----------+------+------+------------+------------+
+         * |     12347| 22720|   0.0|         3.0| 0.016315518|
+         * |     12347| 84879|   0.0|         6.0| 0.049022276|
+         * |     12347|85123A|   0.0|         8.0|  0.10337482|
+         * |     12349| 20725|   0.0|         0.0|0.0010067442|
+         * |     12350| 20727|   0.0|         1.0|6.6785584E-4|
+         * +----------+------+------+------------+------------+
+         * only showing top 5 rows
+         */
+        testPrediction.filter(testPrediction.col("prediction").gt(0)).sort(functions.col("CustomerID").asc(), functions.col("Cusip").asc()).show(5);
 
     }
 

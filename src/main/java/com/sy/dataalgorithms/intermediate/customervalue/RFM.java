@@ -63,7 +63,7 @@ public class RFM {
          * CustomerID: Customer number. Nominal, a 5-digit integral number uniquely assigned to each customer.
          * Country: Country name. Nominal, the name of the country where each customer resides.
          */
-        String path = PropertiesReader.get("customer_value_csv");
+        String path = PropertiesReader.get("intermediate_customer_value_csv");
         Dataset<Row> dataset = session.read()
                 .option("sep", ",")
                 .option("header", "true")
