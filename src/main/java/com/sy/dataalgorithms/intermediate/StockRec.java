@@ -33,7 +33,7 @@ public class StockRec {
     public static void alsRec(SparkSession session) {
 
         /**
-         * 以下是数据集[online_retail.csv]的属性描述：
+         * 以下是数据集[online_retail.csv]的属性描述：(数据集来自https://archive.ics.uci.edu/ml/datasets/statlog+(german+credit+data))
          *
          * InvoiceNo: Invoice number. Nominal, a 6-digit integral number uniquely assigned to each transaction. If this code starts with letter 'c', it indicates a cancellation.
          * StockCode: Product (item) code. Nominal, a 5-digit integral number uniquely assigned to each distinct product.
