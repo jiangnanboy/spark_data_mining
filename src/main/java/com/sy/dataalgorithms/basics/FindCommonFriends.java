@@ -1,4 +1,4 @@
-package com.sy.dataalgorithms.intermediate;
+package com.sy.dataalgorithms.basics;
 
 import com.google.common.collect.Sets;
 import com.sy.init.InitSpark;
@@ -16,7 +16,7 @@ import java.util.*;
 /**
  * 共同好友
  * @Author Shi Yan
- * @Date 2020/10/28 9:32
+ * @Date 2020/10/28 20:32
  */
 public class FindCommonFriends {
 
@@ -28,7 +28,7 @@ public class FindCommonFriends {
     }
 
     public static void commonFriends(SparkSession session) {
-        String path = PropertiesReader.get("intermediate_usersfriends_txt");
+        String path = PropertiesReader.get("basic_usersfriends_txt");
         JavaRDD<String> javaRDD = session.read().textFile(path).toJavaRDD();
 
         //100,200 300 400 => key=(100,200),value=[200,300,400];key=(100,300),value=[200,300,400];key=(100,400),value=[200,300,400];

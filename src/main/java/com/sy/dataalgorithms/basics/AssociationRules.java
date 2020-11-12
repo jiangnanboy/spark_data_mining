@@ -1,4 +1,4 @@
-package com.sy.dataalgorithms.intermediate;
+package com.sy.dataalgorithms.basics;
 
 import com.sy.init.InitSpark;
 import com.sy.util.PropertiesReader;
@@ -15,7 +15,7 @@ import java.util.*;
 /**
  * 关联规则
  * @Author Shi Yan
- * @Date 2020/10/27 15:14
+ * @Date 2020/10/27 21:14
  */
 public class AssociationRules {
     public static void main(String[] args) {
@@ -30,7 +30,7 @@ public class AssociationRules {
      * @param session
      */
     public static void findAR(SparkSession session) {
-        String path = PropertiesReader.get("intermediate_associationrelus_txt");
+        String path = PropertiesReader.get("basic_associationrelus_txt");
         JavaRDD<String> javaRDD = session.read().textFile(path).toJavaRDD();
         //生成频繁模式 [a,b,c]=> [a]:1,[b]:1,[c]:1,[a,b]:1,[a,c]:1,[b,c]:1,[a,b,c]:1
         JavaPairRDD<List<String>, Integer> patterns = javaRDD.flatMapToPair(s -> {

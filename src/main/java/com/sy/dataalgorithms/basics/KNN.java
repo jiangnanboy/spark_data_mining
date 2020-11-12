@@ -1,4 +1,4 @@
-package com.sy.dataalgorithms.intermediate;
+package com.sy.dataalgorithms.basics;
 
 import com.sy.init.InitSpark;
 import com.sy.util.PropertiesReader;
@@ -20,7 +20,7 @@ import java.util.*;
 
 /**
  * @Author Shi Yan
- * @Date 2020/11/2 9:46
+ * @Date 2020/11/2 21:46
  */
 public class KNN {
     public static void main(String[] args) {
@@ -33,10 +33,10 @@ public class KNN {
     }
 
     public static void knnCal(SparkSession session, Broadcast<Integer> broadcastK, Broadcast<Integer> broadcastD) {
-        String sPath = PropertiesReader.get("intermediate_knndata_s_txt");
+        String sPath = PropertiesReader.get("basic_knndata_s_txt");
         JavaRDD<String> sJavaRDD = session.read().textFile(sPath).toJavaRDD().repartition(10);
 
-        String rPath = PropertiesReader.get("intermediate_knndata_r_txt");
+        String rPath = PropertiesReader.get("basic_knndata_r_txt");
         JavaRDD<String> rJavaRDD = session.read().textFile(rPath).toJavaRDD().repartition(10);
 
         JavaPairRDD<String, String> cartJavaRDD = rJavaRDD.cartesian(sJavaRDD);//笛卡尔集

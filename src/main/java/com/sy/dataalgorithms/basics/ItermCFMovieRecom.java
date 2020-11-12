@@ -1,4 +1,4 @@
-package com.sy.dataalgorithms.intermediate;
+package com.sy.dataalgorithms.basics;
 
 import com.sy.init.InitSpark;
 import com.sy.util.PropertiesReader;
@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * item-cf相关电影
  * @Author Shi Yan
- * @Date 2020/10/28 14:29
+ * @Date 2020/10/28 20:29
  */
 public class ItermCFMovieRecom {
 
@@ -31,7 +31,7 @@ public class ItermCFMovieRecom {
     }
 
     public static void movieRecommd(SparkSession session) {
-        String path = PropertiesReader.get("intermediate_movie_txt");
+        String path = PropertiesReader.get("basic_movie_txt");
         JavaRDD<String> javaRDD = session.read().textFile(path).toJavaRDD();
 
         // (movie,(user,rating))

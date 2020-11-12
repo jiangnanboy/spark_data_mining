@@ -1,4 +1,4 @@
-package com.sy.dataalgorithms.intermediate;
+package com.sy.dataalgorithms.basics;
 
 import com.sy.init.InitSpark;
 import com.sy.util.PropertiesReader;
@@ -16,7 +16,7 @@ import java.util.*;
 /**
  * 推荐好友
  * @Author Shi Yan
- * @Date 2020/10/28 10:54
+ * @Date 2020/10/28 21:54
  */
 public class FriendRecom {
     public static void main(String[] args) {
@@ -27,7 +27,7 @@ public class FriendRecom {
     }
 
     public static void recommendation(SparkSession session) {
-        String path = PropertiesReader.get("intermediate_recommender_friends_txt");
+        String path = PropertiesReader.get("basic_recommender_friends_txt");
         JavaRDD<String> javaRDD = session.read().textFile(path).toJavaRDD();
 
         //直接好友和可能好友

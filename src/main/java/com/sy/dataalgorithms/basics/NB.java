@@ -1,4 +1,4 @@
-package com.sy.dataalgorithms.intermediate;
+package com.sy.dataalgorithms.basics;
 
 import com.sy.init.InitSpark;
 import com.sy.util.PropertiesReader;
@@ -16,7 +16,7 @@ import java.util.*;
 
 /**
  * @Author Shi Yan
- * @Date 2020/11/2 13:40
+ * @Date 2020/11/2 20:40
  */
 public class NB {
     public static void main(String[] args) {
@@ -31,7 +31,7 @@ public class NB {
      * @param session
      */
     public static void buildNBClassifier(SparkSession session) {
-        String path = PropertiesReader.get("intermediate_nb_txt");
+        String path = PropertiesReader.get("basic_nb_txt");
         JavaRDD<String> trainJavaRDD = session.read().textFile(path).toJavaRDD().repartition(10);
         long trainingDataSize = trainJavaRDD.count();//训练集大小
 
