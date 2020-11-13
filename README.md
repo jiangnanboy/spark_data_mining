@@ -23,6 +23,7 @@ spark数据挖掘项目实例。
 * [RFM客户价值分群挖掘](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/customervalue)
 * [手机基站定位数据的商圈分析](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/BusinessCircle.java)
 * [AHP层次分析顾客价值得分](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/AHP.java)
+* [RF用户流失预测](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/CustomerChurnAnalysis.java)
 
 #### requirements
 * [java1.8]
