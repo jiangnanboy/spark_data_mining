@@ -18,6 +18,29 @@ import java.util.List;
 import static org.apache.spark.sql.functions.*;
 
 /**
+ * 针对淘宝app一个月的数据进行流量运营分析，主要包括：
+ *              1.app流量分析
+ *                  (1).pv页面浏览量
+ *                  (2).uv独立访客
+ *                  (3).访问深度
+ *                  (4).每天访客数和成交量
+ *                  (5).不同时段的访客数及成交量
+ *                  (6).流失率
+ *              2.用户行为分析
+ *                  (1).用户浏览活跃时段
+ *                  (2).用户购买活跃时段
+ *                  (3).用户浏览最多的类目
+ *                  (4).用户收藏最多的类目
+ *                  (5).用户加购最多的类目
+ *                  (6).用户购买最多的类目
+ *                  (7).最近 30 天购买次数
+ *                  (8).最近 7 天的活跃天数
+ *                  (9).复购率
+ *              3.商品分析
+ *                  (1).浏览量最多和最少的 TOP5 类目
+ *                  (2).收藏量最多和最少的 TOP5 类目
+ *                  (3).加购量最多和最少的 TOP5 类目
+ *                  (4).购买量最多和最少的 TOP5 类目
  *
  * 参考【https://blog.csdn.net/weixin_45758323/article/details/107722810】
  * 数据集【taobao_persona.csv】来自和鲸社区 https://www.kesci.com/home/dataset/5ef7024363975d002c9235d3，
@@ -184,10 +207,10 @@ public class TrafficOperationAnalysis {
         })));
 
         //app流量分析析
-        //appTrafficAnalysis(dataset);
+        appTrafficAnalysis(dataset);
 
         //用户行为分析
-        //userBehaviorAnalysis(session, dataset);
+        userBehaviorAnalysis(session, dataset);
 
         //商品分析
         productAnalysis(dataset);
