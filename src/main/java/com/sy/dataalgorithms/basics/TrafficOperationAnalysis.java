@@ -44,7 +44,7 @@ import static org.apache.spark.sql.functions.*;
  *
  * 参考【https://blog.csdn.net/weixin_45758323/article/details/107722810】
  * 数据集【taobao_persona.csv】来自和鲸社区 https://www.kesci.com/home/dataset/5ef7024363975d002c9235d3，
- * 记录了 2014 年 11 月 18 日至 2014 年 12 月 18 日的电商 APP 部分用户行为记录，原始数据共 1048575 条，共有 6 个属性。
+ * 记录了 2014 年 11 月 18 日至 2014 年 12 月 18 日的电商 APP 部分用户行为记录，原始数据共 23291027 条，共有 6 个属性。
  *
  *      属性名	                属性值
  *      user_id	                用户 ID,一个 ID 允许触发多个行为
