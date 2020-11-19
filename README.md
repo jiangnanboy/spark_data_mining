@@ -1,5 +1,5 @@
 This repository provides tutorial code for big data mining to learn [spark](https://github.com/apache/spark).
-spark数据挖掘项目实例。
+本库利用java spark实现的数据挖掘项目，包括一些数据的常规分析与挖掘，也包括了一些机器学习算法。这些项目都可以直接运行在所指定的数据集上。未来如果看到有好的数据挖掘项目或者有自己不错的想法都会随时更新实现。
 
 <br/>
 
