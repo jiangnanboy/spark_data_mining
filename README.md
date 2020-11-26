@@ -7,9 +7,6 @@ This repository provides tutorial code for big data mining to learn [spark](http
 
 #### 1. basics
 * [TrafficOperationAnalysis淘宝APP一个月数据的流量运营分析](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/basics/TrafficOperationAnalysis.java)
-* [LeftOuterJoin左外连接](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/basics/LeftOuterJoin.java)
-* [SecondarySort二次排序](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/basics/SecondarySort.java)
-* [TopN](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/basics/TopN.java)
 * [AssociationRules关联规则](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/basics/AssociationRules.java)
 * [FindCommonFriends共同好友](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/basics/FindCommonFriends.java)
 * [FriendRecom推荐朋友](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/basics/FriendRecom.java)
