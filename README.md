@@ -23,12 +23,16 @@ This repository provides tutorial code for big data mining to learn [spark](http
 * [AHP层次分析顾客价值得分](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/AHP.java)
 * [RF用户流失预测](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/intermediate/CustomerChurnAnalysis.java)
 
+#### 3.advanced
+* [时间序列预测(商品销量预测)](https://github.com/jiangnanboy/spark_tutorial/blob/master/src/main/java/com/sy/dataalgorithms/advanced/time_series)
+
 #### requirements
 * [java1.8]
 * [spark3.0]
 * [python3.6]
 * [pandas1.1.4]
 * [numpy1.18.5]
+* [lightgbm2.3.x]
 
 #### references
 * [data algorithms](https://github.com/mahmoudparsian/data-algorithms-book)
