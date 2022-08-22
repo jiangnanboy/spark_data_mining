@@ -11,4 +11,4 @@
 
 1.数据处理以及特征提取利用spark进行操作，见TimeSeries.java。
 
-2.模型的训练及预测利用lightgbm进行操作，见time_series.ipynb，data下是spark处理好的数据。
+2.模型的训练及预测利用lightgbm进行操作，见time_series.ipynb，data.7z下是spark处理好的数据。
