@@ -39,3 +39,12 @@ This repository provides tutorial code for big data mining to learn [spark](http
 * [spark](https://github.com/apache/spark/tree/master/examples/src/main/java/org/apache/spark/examples)
 * [spark_smote](https://github.com/jiangnanboy/spark-smote)
 * [LearningApacheSpark](https://github.com/runawayhorse001/LearningApacheSpark)
+
+#### contact
+如有搜索、推荐、nlp以及大数据挖掘等问题或合作，可联系我：    
+    
+1、我的github项目介绍：https://github.com/jiangnanboy 
+
+2、我的博客园技术博客：https://www.cnblogs.com/little-horse/   
+     
+3、我的QQ号:2229029156
